@@ -2,13 +2,13 @@ package scalaquantity
 
 import scalaquantity.Exponents._
 import Units._
-import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{ FunSuite, FlatSpec }
+import org.scalatest.Matchers
 
 /**
  * If it compiles, it passed
  */
-class TestUnits extends FunSuite with ShouldMatchers {
+class TestUnits extends FunSuite with Matchers {
 
   test( "An Exponent should support numerals" ) {
     assert( exponentValue[P0] === 0 )

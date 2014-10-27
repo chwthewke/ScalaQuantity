@@ -18,9 +18,9 @@ object ScalaQuantityBuild extends Build {
     scalaQuantityScalariformSettings ++
     Seq(
       organization := "net.chwthewke",
-      scalaVersion := "2.9.1",
-      libraryDependencies += "org.scalatest" %% "scalatest" % "1.7.1" % "test" withSources () withJavadoc (),
-      //scalacOptions ++= Seq( "-feature", "-deprecation" ),
+      scalaVersion := "2.11.2",
+      libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.0" % "test" withSources () withJavadoc (),
+      scalacOptions ++= Seq( "-feature", "-deprecation" ),
       unmanagedSourceDirectories in Compile := (scalaSource in Compile).value :: Nil,
       unmanagedSourceDirectories in Test := (scalaSource in Test).value :: Nil,
       EclipseKeys.projectFlavor := EclipseProjectFlavor.Scala,

@@ -1,5 +1,7 @@
 package scalaquantity
 
+import scala.language.higherKinds
+
 object Exponents {
 
   type -[S1 <: Exp, S2 <: Exp] = S1#Sub[S2]

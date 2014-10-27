@@ -2,6 +2,7 @@ package scalaquantity
 
 import Exponents._
 import scala.math.Pi
+import scala.language.implicitConversions
 
 object Units {
 
