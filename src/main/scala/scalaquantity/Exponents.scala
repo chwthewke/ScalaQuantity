@@ -1,8 +1,5 @@
 package scalaquantity
 
-
-
-
 object Exponents {
 
   type -[S1 <: Exp, S2 <: Exp] = S1#Sub[S2]
@@ -26,7 +23,6 @@ object Exponents {
     type Next = NextExp[P0]
     type Prev = Next#Neg
   }
-
 
   sealed trait PosExp extends NatExp
   final class NextExp[P <: NatExp] extends PosExp {
@@ -73,17 +69,15 @@ object Exponents {
   type N9 = P9#Neg
   type N10 = P10#Neg
 
-
-  case class ExponentToValue[T](value : Int)
-  implicit val p0ToInt = ExponentToValue[P0](0)
-  implicit def nextToInt[P <: NatExp](implicit v : ExponentToValue[P]) = ExponentToValue[NextExp[P]]( 1 + v.value )
-  implicit def negToInt [P <: PosExp](implicit v : ExponentToValue[P]) = ExponentToValue[NegExp[P] ](    -v.value )
+  case class ExponentToValue[T]( value : Int )
+  implicit val p0ToInt = ExponentToValue[P0]( 0 )
+  implicit def nextToInt[P <: NatExp]( implicit v : ExponentToValue[P] ) = ExponentToValue[NextExp[P]]( 1 + v.value )
+  implicit def negToInt[P <: PosExp]( implicit v : ExponentToValue[P] ) = ExponentToValue[NegExp[P]]( -v.value )
 
   /**
    * @return the integer value of the specified unit exponent.
    * E.g. exponentValue[Speed#M] == 1 and exponentValue[Speed#S] == -1
    */
-  def exponentValue[T](implicit exponentToValue: ExponentToValue[T]): Int = exponentToValue.value
-
+  def exponentValue[T]( implicit exponentToValue : ExponentToValue[T] ) : Int = exponentToValue.value
 
 }
